@@ -13,7 +13,12 @@ import random
     def cards():
         url = https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1'''
 
-    
+
+
+coins = 10 
+
+'''while True: ##### We are gonna use a while statement. If user coins = 0. Break'''
+
 
 window = tk.Tk()
 window.title("BlackJack Degen")
