@@ -30,6 +30,14 @@ class Desert:
 
 
 
+store = {
+    "Sword": ["Sword", "Sharp,", "Heavy"],
+    "Water": ["Water", "Bottle", "Refreshing"]
+}
+    
+
+
+
 
 
 
