@@ -55,7 +55,7 @@ class Desert:
         print("Perfect weather today. Somehow, you feel eventful already.")
 
     def random_event(self):
-        events = [self.storm, self.heavy_storm, self.find_food, self,get_sick, self.perfect_weather]
+        events = [self.storm, self.heavy_storm, self.find_food, self.get_sick, self.perfect_weather]
         event = random.choice(events)
         event()
 
@@ -66,15 +66,10 @@ store = [
 "Shovel": {"name": "Shovel", "description": "Dig for treasure"}, 
 "WW2 Rations": {"name": "WW2 Rations", "description": "Food for energy"},
 "Energy Drnk": {"name": "Energy Drink", "description": "Drink for Energy"},
-"Fishing Rod": {"name": "Fishing Rod", "description": "Fish for Food"}
+"Fishing Rod": {"name": "Fishing Rod", "description": "Fish for Food"} 
 ]
 
 
+name = input("Name: ")
 
-
-
-
-
-
-
-
+while True:
