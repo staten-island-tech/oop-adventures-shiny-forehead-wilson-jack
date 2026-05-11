@@ -15,26 +15,27 @@ class Desert:
         return random.randint(20,50)
 
     def water(self):
-        self.__thrist + self.newnumber()
-        self.__energy + self.newnumber()
-        self.__happy + self.newnumber()
-        self.__health + self.newnumber()
+        self.__thrist += self.newnumber()
+        self.__energy += self.newnumber()
+        self.__happy += self.newnumber()
+        self.__health += self.newnumber()
 
     def feeling(self):
-        if self.__thrist and self.__energy and self.__happy and self.__health < 25:
+        if self.__thrist < 25 and self.__energy < 25 and self.__happy < 25 and self.__health < 25:
             print("Near Death")
-        elif self.__thrist and self.__energy and self.__happy and self.__health < 50:
+        elif self.__thrist < 50 and self.__energy < 50 and self.__happy < 50 and  self.__health < 50:
             print("Depressed")
-        elif self.__thrist and self.__energy and self.__happy and self.__health > 50:
+        elif self.__thrist > 50 and self.__energy > 50 and self.__happy > 50 and self.__health > 50:
             print("Alright")
 
 
 
-store = {
-    "Sword": ["Sword", "Sharp,", "Heavy"],
-    "Water": ["Water", "Bottle", "Refreshing"]
-}
-    
+store = [
+    "Sword": {"name": "Sword", "description": "Heavy and deals damage"},
+    "Water": {"name": "Water Bottle", "description": "Refreshing"},
+
+]
+print[store]["name"]
 
 
 
