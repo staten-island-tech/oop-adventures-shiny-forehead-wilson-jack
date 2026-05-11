@@ -58,7 +58,15 @@ class Desert:
         events = [self.storm, self.heavy_storm, self.find_food, self.get_sick, self.perfect_weather]
         event = random.choice(events)
         event()
-
+    def wild_beast(self):
+        print()
+        print("A wild boar charges out from the forest!")
+        print("1. Hide(costs energy, but you're safe)")
+        print("2. Confront it (Risks injury, but might gain happiness)")
+        choice = input("What do you do? (1/2):")
+        if choice == "1":
+            self.__energy -= 15
+        elif choice == "2":
 
 store = [
 "Sword": {"name": "Sword", "description": "Heavy and deals damage"},
