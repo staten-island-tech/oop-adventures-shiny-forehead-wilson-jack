@@ -1,7 +1,7 @@
 import random
 
 class Desert:
-    def __init__(self, name, happy, hunger, iventory, thrist, energy, mood, health):
+    def __init__(self, name, happy, hunger, iventory, thrist, energy, mood, health, store):
         self.name = name
         self.__happy = happy
         self.__hunger = hunger
@@ -66,18 +66,18 @@ class Desert:
         choice = input("What do you do? (1/2):")
         if choice == "1":
             self.__energy -= 15
-        elif choice == "2":
+        #elif choice == "2":
+    def market(self, ):
+        store = [{
+        "Sword": {"name": "Sword", "description": "Heavy and deals damage"},
+        "Water": {"name": "Water Bottle", "description": "Refreshing"}, 
+        "Shovel": {"name": "Shovel", "description": "Dig for treasure"}, 
+        "WW2 Rations": {"name": "WW2 Rations", "description": "Food for energy"},
+        "Energy Drnk": {"name": "Energy Drink", "description": "Drink for Energy"},
+        "Fishing Rod": {"name": "Fishing Rod", "description": "Fish for Food"} 
+        }]
 
-store = [
-"Sword": {"name": "Sword", "description": "Heavy and deals damage"},
-"Water": {"name": "Water Bottle", "description": "Refreshing"}, 
-"Shovel": {"name": "Shovel", "description": "Dig for treasure"}, 
-"WW2 Rations": {"name": "WW2 Rations", "description": "Food for energy"},
-"Energy Drnk": {"name": "Energy Drink", "description": "Drink for Energy"},
-"Fishing Rod": {"name": "Fishing Rod", "description": "Fish for Food"} 
-]
 
 
-name = input("Name: ")
 
-while True:
+print(["Sword"]["name"])
