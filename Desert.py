@@ -66,8 +66,15 @@ class Desert:
         choice = input("What do you do? (1/2):")
         if choice == "1":
             self.__energy -= 15
-        #elif choice == "2":
-    def market(self, ):
+            print("You dove into the thick brush. You're exhausted, but safe.")
+        elif choice == "2":
+            if random.choice([True, False]): self.__happy += 20
+            print("You scared it off! You feel like a survivor.")
+        else:
+            self.__health -= 20
+            self.__happy -= 10
+            print("The boar tackled you! Ouch...")
+    def market(self ):
         store = [{
         "Sword": {"name": "Sword", "description": "Heavy and deals damage"},
         "Water": {"name": "Water Bottle", "description": "Refreshing"}, 
@@ -76,8 +83,17 @@ class Desert:
         "Energy Drnk": {"name": "Energy Drink", "description": "Drink for Energy"},
         "Fishing Rod": {"name": "Fishing Rod", "description": "Fish for Food"} 
         }]
+    def days(self):
+        self.__energy -= 10
+        self.__thrist -=10
+        self.__hunger -= 10
+        self.__happy -= 10
+        if self.__energy == 0 and self.__thrist == 0 and self.__hunger == 0 and self.__happy == 0:
+            return False
+        else:
+            return True
+    def eat(self):
 
 
 
 
-print(["Sword"]["name"])
