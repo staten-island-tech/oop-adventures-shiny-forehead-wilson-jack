@@ -17,12 +17,24 @@ def get_sick(self):
 def perfect_weather(self):
     self.__happy += 15
     print("Perfect weather today. Somehow, you feel hopeful already.")
+def suspicious_water(self):
+     print()
+     print("You find a conveniently placed bowl of water lying on a tree log.")
+     print("1. Don't drink")
+     print("2. Drink.")
+     choice = input("Do you drink? (1/2): ")
+     if choice == "1":
+          self.__thirst -= 5
+     elif choice == "2":
+          
+
+
 def wild_beast(self):
     print()
     print("A wild boar charges out from the forest!")
     print("1. Hide(costs energy, but you're safe)")
     print("2. Confront it (Risks injury, but might gain happiness)")
-    choice = input("What do you do? (1/2):")
+    choice = input("What do you do? (1/2): ")
     if choice == "1":
             self.__energy -= 15
             print("You dove into the thick brush. You're exhausted, but safe.")
