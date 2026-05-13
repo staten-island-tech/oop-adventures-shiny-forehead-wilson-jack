@@ -1,8 +1,5 @@
 import random
 
-
-
-
 def storm(self):
     self.__energy -= 10
     self.__health -= 5
@@ -16,13 +13,22 @@ def get_sick(self):
     self.__mood -= 15
     print("Your immune system was compromised. Yes, you got sick...")
 def perfect_weather(self):
-    self.__happy += 15
+    self.__happy += 10
     print("Perfect weather today. Somehow, you feel hopeful already.")
 def volcanic_eruption(self):
-     self.__health -= 25
-     self.__energy -= 30
-     self.__happy -= 15
-     print("The volcano erupts! The air is thick with smoke as you scramble to get to a safe distance.")
+        self.__health -= 30
+        self.__energy -= 20
+        self.__happy -= 20
+        print("A volcano erupts! The air is thick with suffocating smoke as you rush towards safety.")
+
+def supply_crate(self):
+     print()
+     print("1. Bandages")
+     print("2. Can of beans")
+     print("3. Bottle of water")
+     print("4. Bag of coins")
+     print("5. Spear")
+
 
 def wild_beast(self):
     print()
@@ -39,7 +45,7 @@ def wild_beast(self):
     else:
          self.__health -= 20
          self.__happy -= 10
-         print("The boar tackled you! That did not feel good...")
+         print("The boar tackled you! Ouch...")
 
 def random_event(self):
     events = [self.storm, self.heavy_storm, self.find_food, self.get_sick, self.perfect_weather]
