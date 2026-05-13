@@ -1,11 +1,9 @@
+import random
+
 def storm(self):
     self.__energy -= 10
     self.__health -= 5
     print("A storm hits!")
-def heavy_storm(self):
-    self.__energy -= 20
-    self.__health -= 10
-    print("A heavy storm hits!")
 def find_food(self):
     self.__hunger -= 15
     self.__happy += 5
@@ -15,18 +13,21 @@ def get_sick(self):
     self.__mood -= 15
     print("Your immune system was compromised. Yes, you got sick...")
 def perfect_weather(self):
-    self.__happy += 15
+    self.__happy += 10
     print("Perfect weather today. Somehow, you feel hopeful already.")
-def suspicious_water(self):
+def volcanic_eruption(self):
+        self.__health -= 30
+        self.__energy -= 20
+        self.__happy -= 20
+        print("A volcano erupts! The air is thick with suffocating smoke as you rush towards safety.")
+
+def supply_crate(self):
      print()
-     print("You find a conveniently placed bowl of water lying on a tree log.")
-     print("1. Don't drink")
-     print("2. Drink.")
-     choice = input("Do you drink? (1/2): ")
-     if choice == "1":
-          self.__thirst -= 5
-     elif choice == "2":
-          
+     print("1. Bandages")
+     print("2. Can of beans")
+     print("3. Bottle of water")
+     print("4. Bag of coins")
+     print("5. Spear")
 
 
 def wild_beast(self):
