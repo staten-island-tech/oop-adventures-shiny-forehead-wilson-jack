@@ -9,15 +9,16 @@ class Starter:
 class NPC(Starter):
     def __init__(self,name,health):
         super().__init__(name, health)
+    
 
 
 
 class Deserted(Starter):
-    def __init__(self, name, happy, hunger, iventory, thrist, energy, mood, health, store):
+    def __init__(self, name, happy, hunger, inventory, thrist, energy, mood, health, store):
         super().__init__(name, health)
         self.__happy = happy
         self.__hunger = hunger
-        self.__inventory = iventory
+        self.__inventory = []
         self.__thrist = thrist
         self.__energy = energy
         self.__mood = mood
@@ -27,9 +28,9 @@ class Deserted(Starter):
 
     def water(self):
         self.__thrist += self.newnumber()
-        self.__energy += self.newnumber()
+        self.__energy += random.randint(5,15)
         self.__happy += self.newnumber()
-        self.__health += self.newnumber()
+        self.__health += random.randint(1,10)
 
     def feeling(self):
         if self.__thrist < 25 and self.__energy < 25 and self.__happy < 25 and self.__health < 25:
