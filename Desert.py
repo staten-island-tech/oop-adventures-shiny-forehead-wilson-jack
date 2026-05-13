@@ -1,15 +1,26 @@
 import random
 
-class Desert:
-    def __init__(self, name, happy, hunger, iventory, thrist, energy, mood, health, store):
+class Starter:
+    def __init__(self, name, health):
         self.name = name
+        self.health = health
+    
+
+class NPC(Starter):
+    def __init__(self,name,health):
+        super().__init__(name, health)
+
+
+
+class Deserted(Starter):
+    def __init__(self, name, happy, hunger, iventory, thrist, energy, mood, health, store):
+        super().__init__(name, health)
         self.__happy = happy
         self.__hunger = hunger
         self.__inventory = iventory
         self.__thrist = thrist
         self.__energy = energy
         self.__mood = mood
-        self.__health = health
     
     def newnumber():
         return random.randint(20,50)
@@ -92,8 +103,22 @@ class Desert:
             return False
         else:
             return True
-    def eat(self):
+    def checker(self):
+        return self.__health, self.__energy
+    
+        
 
+
+
+name = input("Character Name: ")
+
+
+player = Deserted(name, happy = random.randint(50,100), hunger = random.randint(30,100), thrist= random.randint(60,100), energy = random.randint(50,100))
+
+if player.checker() < 50:
+    print("You started as frail. Good Luck")
+else:
+    print("You started off as a strong person!!!!!!!!!!!!!!!!!!!!!!z121!!!!!!1")
 
 
 
