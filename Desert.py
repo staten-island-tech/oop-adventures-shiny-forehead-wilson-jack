@@ -73,7 +73,7 @@ class Deserted(Starter):
     def wild_beast(self):
         print()
         print("A wild boar charges out from the forest!")
-        print("1. Hide(costs energy, but you're safe)")
+        print("1. Hide (costs energy, but you're safe)")
         print("2. Confront it (Risks injury, but might gain happiness)")
         choice = input("What do you do? (1/2):")
         if choice == "1":
@@ -81,7 +81,7 @@ class Deserted(Starter):
             print("You dove into the thick brush. You're exhausted, but safe.")
         elif choice == "2":
             if random.choice([True, False]): self.__happy += 20
-            print("You scared it off! You feel like a survivor.")
+            print("You scared it off! Your Ego Is Massive NOW")
         else:
             self.__health -= 20
             self.__happy -= 10
@@ -93,7 +93,8 @@ class Deserted(Starter):
         "Shovel": {"name": "Shovel", "description": "Dig for treasure"}, 
         "WW2 Rations": {"name": "WW2 Rations", "description": "Food for energy"},
         "Energy Drnk": {"name": "Energy Drink", "description": "Drink for Energy"},
-        "Fishing Rod": {"name": "Fishing Rod", "description": "Fish for Food"} 
+        "Fishing Rod": {"name": "Fishing Rod", "description": "Fish for Food"},
+        "Raft": {"name": "Life Raft", "description": "Escape Boat To FREEDOM"}
         }]
     def days(self):
         self.__energy -= 10
