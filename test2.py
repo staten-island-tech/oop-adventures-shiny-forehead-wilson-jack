@@ -20,6 +20,7 @@ def perfect_weather(self):
 
           
 
+     
 
 def wild_beast(self):
     print()
