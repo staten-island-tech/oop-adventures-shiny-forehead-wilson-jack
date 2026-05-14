@@ -17,15 +17,6 @@ def get_sick(self):
 def perfect_weather(self):
     self.__happy += 15
     print("Perfect weather today. Somehow, you feel hopeful already.")
-def supply_crate(self):
-     print()
-     print("1. Bandages")
-     print("2. Can of beans")
-     print("3. Bottle of water")
-     print("4. Bag of coins")
-     print("5. Spear")
-     print("")
-     
 def wild_beast(self):
     print()
     print("A wild boar charges out from the forest!")
