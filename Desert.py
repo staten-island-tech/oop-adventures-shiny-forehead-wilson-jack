@@ -23,7 +23,7 @@ class Deserted(Starter):
         self.__energy = energy
         self.__mood = mood
     
-    def newnumber():
+    def newnumber(self):
         return random.randint(20,50)
 
     def water(self):
@@ -87,21 +87,24 @@ class Deserted(Starter):
             self.__happy -= 10
             print("The boar tackled you! Ouch...")
     def market(self ):
-        store = [{
-        "Sword": {"name": "Sword", "description": "Heavy and deals damage"},
-        "Water": {"name": "Water Bottle", "description": "Refreshing"}, 
-        "Shovel": {"name": "Shovel", "description": "Dig for treasure"}, 
-        "WW2 Rations": {"name": "WW2 Rations", "description": "Food for energy"},
-        "Energy Drnk": {"name": "Energy Drink", "description": "Drink for Energy"},
-        "Fishing Rod": {"name": "Fishing Rod", "description": "Fish for Food"},
-        "Raft": {"name": "Life Raft", "description": "Escape Boat To FREEDOM"}
-        }]
+        consumer = input("Do You Want To Buy From Store??? ").lower
+        if consumer == "yes":
+            print(store)
+        store = {
+        "Sword": {"name": "Sword", "description": "Heavy and deals damage", "Coins": 10},
+        "Water": {"name": "Water Bottle", "description": "Refreshing", "Coins": 5}, 
+        "Shovel": {"name": "Shovel", "description": "Dig for treasure","Coins": 0}, 
+        "WW2 Rations": {"name": "WW2 Rations", "description": "Food for energy", "Coins": 5},
+        "Energy Drnk": {"name": "Energy Drink", "description": "Drink for Energy", "Coins": 3},
+        "Fishing Rod": {"name": "Fishing Rod", "description": "Fish for Food", "Coins": 6},
+        "Raft": {"name": "Life Raft", "description": "Escape Boat To FREEDOM", "Coins": 1000}
+        }
     def days(self):
-        self.__energy -= 10
-        self.__thrist -=10
-        self.__hunger -= 10
-        self.__happy -= 10
-        if self.__energy == 0 and self.__thrist == 0 and self.__hunger == 0 and self.__happy == 0:
+        self.energy -= 10
+        self.thrist -=10
+        self.hunger -= 10
+        self.happy -= 10
+        if self.__energy == 0 or self.__thrist == 0 or self.__hunger == 0 or self.__happy == 0:
             return False
         else:
             return True
