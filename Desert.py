@@ -11,6 +11,14 @@ class NPC(Starter):
     def __init__(self,name,health, coins):
         super().__init__(name, health, coins)
     
+    def attacked(self):
+        rando = random.randint(1,50)
+        self.health -= rando
+        if rando > 25:
+            print("U just got jumped")
+        else:
+            print("Tiny Damage")
+    
 
 
 
