@@ -33,9 +33,7 @@ def supply_crate(self):
      print("4. Bag of coins")
      print("5. Spear")
      choice = input("Which items will you take(Max 2)?: ")
-     #  COME BACK AGAIN WHEN INVENTORY IS ADDED
-
-
+     
 def wild_beast(self):
     print()
     print("A wild boar charges out from the forest!")
