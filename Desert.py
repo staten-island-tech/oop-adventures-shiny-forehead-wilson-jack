@@ -95,9 +95,6 @@ class Deserted(Starter):
             self.__happy -= 10
             print("The boar tackled you! Ouch...")
     def market(self ):
-        consumer = input("Do You Want To Buy From Store??? ").lower()
-        if consumer == "yes":
-            print(store)
         store = {
         1 : {"name": "Sword", "description": "Heavy and deals damage", "Coins": 10},
         2 : {"name": "Water Bottle", "description": "Refreshing", "Coins": 5}, 
@@ -107,6 +104,9 @@ class Deserted(Starter):
         6 : {"name": "Fishing Rod", "description": "Fish for Food", "Coins": 6},
         7 : {"name": "Life Raft", "description": "Escape Boat To FREEDOM", "Coins": 1000}
         }
+        consumer = input("Do You Want To Buy From Store??? ").lower()
+        if consumer == "yes":
+            print(store)
     def days(self):
         self.__energy -= 10
         self.__thrist -=10
