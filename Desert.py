@@ -2,24 +2,14 @@ import random
 
 class Starter:
     def __init__(self, name, health, coins):
-         self.name = name
-         self.health = health
-         self.coins = coins
-         
-
+        self.name = name
+        self.health = health
+        self.coins = coins
     
 
 class NPC(Starter):
     def __init__(self,name,health, coins):
         super().__init__(name, health, coins)
-    
-    def attack(self):
-        damage = random.randint(1,50)
-        self.__health -= damage
-        if damage > 25:
-            print("You have been hit pretty hard")
-        else:
-            print("Damage ain't bad.")
     
 
 
@@ -33,16 +23,23 @@ class Deserted(Starter):
         self.__thrist = thrist
         self.__energy = energy
         self.__mood = mood
-        self.__health = health
+        self.__coins = coins
     
-    def newnumber():
+    def rich(self):
+        richer = input("Do You Want To Shovel For Coins?").lower()
+        if richer == "yes":
+            self.__coins += random.randint(1,20)
+
+
+    
+    def newnumber(self):
         return random.randint(20,50)
 
     def water(self):
         self.__thrist += self.newnumber()
-        self.__energy += self.newnumber()
+        self.__energy += random.randint(5,15)
         self.__happy += self.newnumber()
-        self.__health += self.newnumber()
+        self.__health += random.randint(1,10)
 
     def feeling(self):
         if self.__thrist < 25 and self.__energy < 25 and self.__happy < 25 and self.__health < 25:
@@ -85,20 +82,23 @@ class Deserted(Starter):
     def wild_beast(self):
         print()
         print("A wild boar charges out from the forest!")
-        print("1. Hide(costs energy, but you're safe)")
+        print("1. Hide (costs energy, but you're safe)")
         print("2. Confront it (Risks injury, but might gain happiness)")
         choice = input("What do you do? (1/2):")
         if choice == "1":
             self.__energy -= 15
+            print("You dove into the thick brush. You're exhausted, but safe.")
         elif choice == "2":
-<<<<<<< HEAD
             if random.choice([True, False]): self.__happy += 20
             print("You scared it off! Your Ego Is Massive NOW")
         else:
-            self.health -= 20
+            self.__health -= 20
             self.__happy -= 10
             print("The boar tackled you! Ouch...")
     def market(self ):
+        consumer = input("Do You Want To Buy From Store??? ").lower()
+        if consumer == "yes":
+            print(store)
         store = {
         1 : {"name": "Sword", "description": "Heavy and deals damage", "Coins": 10},
         2 : {"name": "Water Bottle", "description": "Refreshing", "Coins": 5}, 
@@ -108,14 +108,11 @@ class Deserted(Starter):
         6 : {"name": "Fishing Rod", "description": "Fish for Food", "Coins": 6},
         7 : {"name": "Life Raft", "description": "Escape Boat To FREEDOM", "Coins": 1000}
         }
-        consumer = input("Do You Want To Buy From Store??? ").lower()
-        if consumer == "yes":
-            print(store)
     def days(self):
-        self.__energy -= 10
-        self.__thrist -=10
-        self.__hunger -= 10
-        self.__happy -= 10
+        self.energy -= 10
+        self.thrist -=10
+        self.hunger -= 10
+        self.happy -= 10
         if self.__energy == 0 or self.__thrist == 0 or self.__hunger == 0 or self.__happy == 0:
             return False
         else:
@@ -136,19 +133,3 @@ if player.checker() < 50:
     print("You started as frail. Good Luck")
 else:
     print("You started off as a strong person!!!!!!!!!!!!!!!!!!!!!!z121!!!!!!1")
-=======
-
-store = {
-"Sword": {"name": "Sword", "description": "Heavy and deals damage"},
-"Water": {"name": "Water Bottle", "description": "Refreshing"}, 
-"Shovel": {"name": "Shovel", "description": "Dig for treasure"}, 
-"WW2 Rations": {"name": "WW2 Rations", "description": "Food for energy"},
-"Energy Drnk": {"name": "Energy Drink", "description": "Drink for Energy"},
-"Fishing Rod": {"name": "Fishing Rod", "description": "Fish for Food"} 
-}
->>>>>>> 6dec96a38d40378f34be91fee6bbba65458ef3b1
-
-
-name = input("Name: ")
-
-while True:
