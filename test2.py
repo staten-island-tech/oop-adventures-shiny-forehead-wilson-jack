@@ -17,11 +17,14 @@ def get_sick(self):
 def perfect_weather(self):
     self.__happy += 15
     print("Perfect weather today. Somehow, you feel hopeful already.")
+<<<<<<< HEAD
+=======
 
           
 
      
 
+>>>>>>> b3744801df76594accecc63c2d1dcbd49c1e479a
 def wild_beast(self):
     print()
     print("A wild boar charges out from the forest!")
