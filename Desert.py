@@ -11,6 +11,14 @@ class NPC(Starter):
     def __init__(self,name,health, coins):
         super().__init__(name, health, coins)
     
+    def attack(self):
+        damage = random.randint(1,50)
+        self.__health -= damage
+        if damage > 25:
+            print("You have been hit pretty hard")
+        else:
+            print("Damage ain't bad.")
+    
 
 
 
