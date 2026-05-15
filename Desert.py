@@ -134,4 +134,4 @@ else:
     print("You started off as a strong person!!!!!!!!!!!!!!!!!!!!!!z121!!!!!!1")
 
 
-
+print("broken")
