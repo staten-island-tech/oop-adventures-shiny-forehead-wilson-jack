@@ -21,15 +21,16 @@ consumer = input("Do You Want To Buy From Store???").lower()
 if consumer == "yes":
     for i in range(1,8): 
         print(store[i]["name"], "Description:", store[i]["description"])
+    else:
+        print("Invalid")
 
-asker = input("Buy What??")
+asker = input("Buy What?? ")
 
 found = True
 for i in range(1,8):
     if asker in store[i]["name"]:
         found = True
-        store[i]["name"].append(inventory)
-    else:
-        found = False
-        if found == False:
-            print("None")
+        inventory.append(asker)
+    else: found = False
+if found == False:
+    print("None Found")
