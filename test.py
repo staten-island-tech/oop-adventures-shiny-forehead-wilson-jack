@@ -21,6 +21,6 @@ asker = print("Buy What??")
 
 for things in store:
         if asker in things["name"]:
-                store["name"].append(inventory)
+        store["name"].append(inventory)
         else:
                 print("Item Not Found!")
