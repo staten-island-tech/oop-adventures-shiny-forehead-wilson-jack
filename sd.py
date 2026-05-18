@@ -12,15 +12,24 @@ store = {
         7 : {"name": "Life Raft-", "description": "Escape Boat To FREEDOM", "Coins": 1000}
         }
 
+
+
+
+
+
 consumer = input("Do You Want To Buy From Store???").lower()
 if consumer == "yes":
-        for i in range(1,8): 
-                print(store[i]["name"], "Description:", store[i]["description"])
-asker = print("Buy What??")
+    for i in range(1,8): 
+        print(store[i]["name"], "Description:", store[i]["description"])
+ 
 
+asker = input("Buy What?? ")
 
-for things in store:
-        if asker in things["name"]:
-        store["name"].append(inventory)
-        else:
-                print("Item Not Found!")
+found = True
+for i in range(1,8):
+    if asker in store[i]["name"]:
+        found = True
+        inventory.append(asker)
+    else: found = False
+if found == False:
+    print("None Found")
