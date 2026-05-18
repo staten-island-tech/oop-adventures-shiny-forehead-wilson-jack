@@ -1,3 +1,7 @@
+import random
+
+random.randint
+
 def storm(self):
     self.__energy -= 10
     self.__health -= 5
@@ -17,14 +21,23 @@ def get_sick(self):
 def perfect_weather(self):
     self.__happy += 15
     print("Perfect weather today. Somehow, you feel hopeful already.")
-<<<<<<< HEAD
-=======
+
 
           
 
      
 
->>>>>>> b3744801df76594accecc63c2d1dcbd49c1e479a
+
+def supply_crate(self):
+    print()
+    print("You spot a supply crate in the near distance. You head over and see many supplies instide")
+    print("1. Bandages")
+    print("2. Bottle of water")
+    print("3. Comedy Book")
+    print("4. Spear")
+    print("5. Can of Beans")
+     
+
 def wild_beast(self):
     print()
     print("A wild boar charges out from the forest!")
@@ -43,6 +56,6 @@ def wild_beast(self):
          print("The boar tackled you! Ouch...")
 
 def random_event(self):
-    events = [self.storm, self.heavy_storm, self.find_food, self.get_sick, self.perfect_weather]
+    events = [self.storm, self.find_food, self.get_sick, self.perfect_weather, self.wild_beast]
     event = random.choice(events)
     event()
