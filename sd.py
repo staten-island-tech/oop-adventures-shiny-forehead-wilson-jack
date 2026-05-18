@@ -21,8 +21,7 @@ consumer = input("Do You Want To Buy From Store???").lower()
 if consumer == "yes":
     for i in range(1,8): 
         print(store[i]["name"], "Description:", store[i]["description"])
-    else:
-        print("Invalid")
+ 
 
 asker = input("Buy What?? ")
 
