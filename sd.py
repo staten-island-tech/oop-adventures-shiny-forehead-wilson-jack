@@ -30,6 +30,7 @@ for i in range(1,8):
     if asker in store[i]["name"]:
         found = True
         inventory.append(asker)
-    else: found = False
+    else: 
+        found = False
 if found == False:
     print("None Found")
