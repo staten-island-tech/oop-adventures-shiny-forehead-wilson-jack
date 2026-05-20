@@ -22,12 +22,16 @@ def get_sick(self):
 def perfect_weather(self):
     self.__happy += 15
     print("Perfect weather today. Somehow, you feel hopeful already.")
-
-
-          
-
-     
-
+def message_in_a_bottle(self):
+     self.__happy += 5
+     print("You spot a message in a bottle drifting to shore. Hopeful, you retrieved it and uncrumpled the piece of paper. 'I like trains...' While stupid and unhelpful as it is, you couldn't help but giggle.")
+def quick_sand(self):
+     print()
+     print("You stepped into quicksand!")
+     print("1. Panic and accept your fate")
+     print("2. Wiggle your feet, distribute your body weight, and slowly get to solid ground")
+     choice = input("what do you do (1/2): ")
+     if choice == "1":
 
 def supply_crate(self):
     print()
@@ -38,7 +42,7 @@ def supply_crate(self):
     print("4. Spear")
     print("5. Can of Beans")
     choice = input("Choose a maximum of 2 items.")
-     
+     # WIP
 
 def wild_beast(self):
     print()
@@ -55,7 +59,6 @@ def wild_beast(self):
     else:
          self.__health -= 20
          print("The boar was not intimidated. It tackled you!")
-
 def random_event(self):
     events = [self.storm, self.find_food, self.get_sick, self.perfect_weather, self.wild_beast, self.supply_crate]
     event = random.choice(events)
