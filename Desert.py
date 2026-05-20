@@ -59,10 +59,10 @@ class Deserted(Starter):
     def fishing(self):
         asker = input("Fish?").lower()
         if asker == "yes":
-            self.__energy += self.newnumber
-            self.__happy += self.newnumber
-            self.__health += self.newnumber
-            self.__hunger += self.newnumber
+            self.__energy += self.newnumber()
+            self.__happy += self.newnumber()
+            self.__health += self.newnumber()
+            self.__hunger += self.newnumber()
     def storm(self):
         self.__energy -= 10
         self.__health -= 5
@@ -138,12 +138,27 @@ class Deserted(Starter):
         self.thrist -=10
         self.hunger -= 10
         self.happy -= 10
-        if self.__energy == 0 or self.__thrist == 0 or self.__hunger == 0 or self.__happy == 0:
-            return False
-        else:
-            return True
+        if self.health <= 0:
+            self.health -= 20
+            print(f"{self.name} is near death. -20 health" )
+        if self.__hunger <=40:
+            self.health -= 5
+            print(f"{self.name} is so hungry. -5 health")
+        if self.thrist <=40:
+            self.health -= 10
+            print(f"{self.name} is so thristy. -10 health")
+
     def checker(self):
         return self.__health, self.__energy
+    
+
+
+    def alive(self):
+        if self.__health and self.__energy and self.__thrist > 0:
+            return True
+        else:
+            return False
+
     
         
 
