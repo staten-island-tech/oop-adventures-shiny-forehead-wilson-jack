@@ -11,6 +11,14 @@ class NPC(Starter):
     def __init__(self,name,health, coins):
         super().__init__(name, health, coins)
     
+    def attacked(self):
+        rando = random.randint(1,50)
+        self.health -= rando
+        if rando > 25:
+            print("U just got jumped")
+        else:
+            print("Tiny Damage")
+    
 
 
 
@@ -23,11 +31,12 @@ class Deserted(Starter):
         self.__thrist = thrist
         self.__energy = energy
         self.__mood = mood
+        self.__coins = coins
     
     def rich(self):
         richer = input("Do You Want To Shovel For Coins?").lower()
         if richer == "yes":
-            self.coins += random.randint(1,20)
+            self.__coins += random.randint(1,20)
 
 
     
@@ -38,36 +47,36 @@ class Deserted(Starter):
         self.__thrist += self.newnumber()
         self.__energy += random.randint(5,15)
         self.__happy += self.newnumber()
-        self.health += random.randint(1,10)
+        self.__health += random.randint(1,10)
 
     def feeling(self):
-        if self.__thrist < 25 and self.__energy < 25 and self.__happy < 25 and self.health < 25:
+        if self.__thrist < 25 and self.__energy < 25 and self.__happy < 25 and self.__health < 25:
             print("Near Death")
-        elif self.__thrist < 50 and self.__energy < 50 and self.__happy < 50 and  self.health < 50:
+        elif self.__thrist < 50 and self.__energy < 50 and self.__happy < 50 and  self.__health < 50:
             print("Depressed")
-        elif self.__thrist > 50 and self.__energy > 50 and self.__happy > 50 and self.health > 50:
+        elif self.__thrist > 50 and self.__energy > 50 and self.__happy > 50 and self.__health > 50:
             print("Alright")
     def fishing(self):
         asker = input("Fish?").lower()
         if asker == "yes":
-            self.__energy += self.newnumber()
-            self.__happy += self.newnumber()
-            self.health += self.newnumber()
-            self.__hunger += self.newnumber()
+            self.__energy += self.newnumber
+            self.__happy += self.newnumber
+            self.__health += self.newnumber
+            self.__hunger += self.newnumber
     def storm(self):
         self.__energy -= 10
-        self.health -= 5
+        self.__health -= 5
         print("A storm hits!")
     def heavy_storm(self):
         self.__energy -= 20
-        self.health -= 10
+        self.__health -= 10
         print("A heavy storm hits!")
     def find_food(self):
         self.__hunger -= 10
         self.__happy += 5
         print("You found some food! It's not much, but, you're content with it.")
     def get_sick(self):
-        self.health -= 15
+        self.__health -= 15
         self.__mood -= 15
         print("Your immune system was compromised. Yes, you got sick...")
     def perfect_weather(self):
@@ -91,27 +100,49 @@ class Deserted(Starter):
             if random.choice([True, False]): self.__happy += 20
             print("You scared it off! Your Ego Is Massive NOW")
         else:
-            self.health -= 20
+            self.__health -= 20
             self.__happy -= 10
             print("The boar tackled you! Ouch...")
     def market(self ):
-        consumer = input("Do You Want To Buy From Store??? ").lower()
-        if consumer == "yes":
-            print(store)
-        store = {
-        1 : {"name": "Sword", "description": "Heavy and deals damage", "Coins": 10},
-        2 : {"name": "Water Bottle", "description": "Refreshing", "Coins": 5}, 
-        3 : {"name": "Shovel", "description": "Dig for treasure","Coins": 0}, 
-        4 : {"name": "WW2 Rations", "description": "Food for energy", "Coins": 5},
-        5 : {"name": "Energy Drink", "description": "Drink for Energy", "Coins": 3},
-        6 : {"name": "Fishing Rod", "description": "Fish for Food", "Coins": 6},
-        7 : {"name": "Life Raft", "description": "Escape Boat To FREEDOM", "Coins": 1000}
-        }
+        cart = []
+
+    store = [
+         {"name": "Sword", "description": "Heavy and deals damage", "Coins": int(10)},
+         {"name": "Water Bottle", "description": "Refreshing", "Coins": 5}, 
+         {"name": "Shovel", "description": "Dig for treasure","Coins": 0}, 
+         {"name": "WW2 Rations", "description": "Food for energy", "Coins": 5},
+         {"name": "Energy Drink", "description": "Drink for Energy", "Coins": 3},
+         {"name": "Fishing Rod", "description": "Fish for Food", "Coins": 6},
+         {"name": "Life Raft", "description": "Escape Boat To FREEDOM", "Coins": 1000}
+        ]
+
+
+
+
+
+while True:
+    for index, items in enumerate(store):
+        print(index, ":", items["name"],"-", "Description:", items["description"], "-", "Cost:", items["Coins"])
+
+    asker = int(input("Buy What?? ")) 
+    if Coins > store[asker]["Coins"]:
+        Coins -= store[asker]["Coins"]
+        cart.append(store[asker]["name"])
+        print(cart)
+        print(Coins)
+    else:
+        print("You're Too Poor")
+
+    asker = input('Do You Want To Continue??').upper()
+    if asker == "NO":
+        break
+
+    
     def days(self):
-        self.__energy -= 10
-        self.__thrist -=10
-        self.__hunger -= 10
-        self.__happy -= 10
+        self.energy -= 10
+        self.thrist -=10
+        self.hunger -= 10
+        self.happy -= 10
         if self.__energy == 0 or self.__thrist == 0 or self.__hunger == 0 or self.__happy == 0:
             return False
         else:
@@ -132,7 +163,10 @@ if player.checker() < 50:
     print("You started as frail. Good Luck")
 else:
     print("You started off as a strong person!!!!!!!!!!!!!!!!!!!!!!z121!!!!!!1")
+<<<<<<< HEAD
 
 
 print("broken")
 print("test")
+=======
+>>>>>>> 2204e1170e2238cb02b74895129db1309cc96358
