@@ -1,15 +1,9 @@
 import random
 
-""" random.randint """
-
 def storm(self):
     self.__energy -= 10
     self.__health -= 5
     print("A storm hits!")
-def heavy_storm(self):
-    self.__energy -= 20
-    self.__health -= 10
-    print("A heavy storm hits!")
 def find_food(self):
     self.__hunger -= 20
     self.__energy += 20
@@ -23,7 +17,7 @@ def perfect_weather(self):
     self.__happy += 15
     print("Perfect weather today. Somehow, you feel hopeful already.")
 def message_in_a_bottle(self):
-     self.__happy += 5
+     self.__happy += 10
      print("You spot a message in a bottle drifting to shore. Hopeful, you retrieved it and uncrumpled the piece of paper. 'I like trains...' While stupid and unhelpful as it is, you couldn't help but giggle.")
 def quick_sand(self):
      print()
@@ -44,6 +38,8 @@ def supply_crate(self):
     choice = input("Choose a maximum of 2 items.")
      # WIP
 
+     
+
 def wild_beast(self):
     print()
     print("A wild boar charges out from the forest!")
@@ -60,6 +56,22 @@ def wild_beast(self):
          self.__health -= 20
          print("The boar was not intimidated. It tackled you!")
 def random_event(self):
-    events = [self.storm, self.find_food, self.get_sick, self.perfect_weather, self.wild_beast, self.supply_crate]
+    roll = random.randint(1,100)
+    if roll <= 10:
+         self.storm()
+    elif roll <= 25:
+         self.find_food()
+    elif roll <= 40:
+         self.get_sick()
+    elif roll <= 65:
+         self.perfect_weather()
+    elif roll <= 80:
+         self.message_in_a_bottle()
+    elif roll <= 95:
+         self.wild_beast()
+    else: 
+         self.supply_crate()
+         
+    """ events = [self.storm, self.find_food, self.get_sick, self.perfect_weather, self.message_in_a_bottle, self.wild_beast, self.supply_crate]
     event = random.choice(events)
-    event()
+    event() """
