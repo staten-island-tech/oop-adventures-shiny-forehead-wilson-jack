@@ -36,7 +36,7 @@ class Deserted(Starter):
     def rich(self):
         richer = input("Do You Want To Shovel For Coins?").lower()
         if richer == "yes":
-            self.__coins += random.randint(1,20)
+            self.coins += random.randint(1,20)
 
 
     
@@ -103,10 +103,9 @@ class Deserted(Starter):
             self.__health -= 20
             self.__happy -= 10
             print("The boar tackled you! Ouch...")
-    def market(self ):
+    def market(self):
         cart = []
-
-    store = [
+        store = [
          {"name": "Sword", "description": "Heavy and deals damage", "Coins": int(10)},
          {"name": "Water Bottle", "description": "Refreshing", "Coins": 5}, 
          {"name": "Shovel", "description": "Dig for treasure","Coins": 0}, 
@@ -116,26 +115,22 @@ class Deserted(Starter):
          {"name": "Life Raft", "description": "Escape Boat To FREEDOM", "Coins": 1000}
         ]
 
+        while True:
+            for index, items in enumerate(store):
+                print(index, ":", items["name"],"-", "Description:", items["description"], "-", "Cost:", items["Coins"])
 
+            asker = int(input("Buy What?? ")) 
+            if Coins > store[asker]["Coins"]:
+                Coins -= store[asker]["Coins"]
+                cart.append(store[asker]["name"])
+                print(cart)
+                print(Coins)
+            else:
+                print("You're Too Poor")
 
-
-
-while True:
-    for index, items in enumerate(store):
-        print(index, ":", items["name"],"-", "Description:", items["description"], "-", "Cost:", items["Coins"])
-
-    asker = int(input("Buy What?? ")) 
-    if Coins > store[asker]["Coins"]:
-        Coins -= store[asker]["Coins"]
-        cart.append(store[asker]["name"])
-        print(cart)
-        print(Coins)
-    else:
-        print("You're Too Poor")
-
-    asker = input('Do You Want To Continue??').upper()
-    if asker == "NO":
-        break
+            asker = input('Do You Want To Continue??').upper()
+            if asker == "NO":
+                break
 
     
     def days(self):
@@ -163,10 +158,3 @@ if player.checker() < 50:
     print("You started as frail. Good Luck")
 else:
     print("You started off as a strong person!!!!!!!!!!!!!!!!!!!!!!z121!!!!!!1")
-<<<<<<< HEAD
-
-
-print("broken")
-print("test")
-=======
->>>>>>> 2204e1170e2238cb02b74895129db1309cc96358
