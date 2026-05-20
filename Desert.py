@@ -47,21 +47,21 @@ class Deserted(Starter):
         self.__thrist += self.newnumber()
         self.__energy += random.randint(5,15)
         self.__happy += self.newnumber()
-        self.__health += random.randint(1,10)
+        self.health += random.randint(1,10)
 
     def feeling(self):
-        if self.__thrist < 25 and self.__energy < 25 and self.__happy < 25 and self.__health < 25:
+        if self.__thrist < 25 and self.__energy < 25 and self.__happy < 25 and self.health < 25:
             print("Near Death")
-        elif self.__thrist < 50 and self.__energy < 50 and self.__happy < 50 and  self.__health < 50:
+        elif self.__thrist < 50 and self.__energy < 50 and self.__happy < 50 and  self.health < 50:
             print("Depressed")
-        elif self.__thrist > 50 and self.__energy > 50 and self.__happy > 50 and self.__health > 50:
+        elif self.__thrist > 50 and self.__energy > 50 and self.__happy > 50 and self.health > 50:
             print("Alright")
     def fishing(self):
         asker = input("Fish?").lower()
         if asker == "yes":
             self.__energy += self.newnumber()
             self.__happy += self.newnumber()
-            self.__health += self.newnumber()
+            self.health += self.newnumber()
             self.__hunger += self.newnumber()
     def storm(self):
         self.__energy -= 10
@@ -120,11 +120,11 @@ class Deserted(Starter):
                 print(index, ":", items["name"],"-", "Description:", items["description"], "-", "Cost:", items["Coins"])
 
             asker = int(input("Buy What?? ")) 
-            if Coins > store[asker]["Coins"]:
-                Coins -= store[asker]["Coins"]
+            if self.coins > store[asker]["Coins"]:
+                self.coins -= store[asker]["Coins"]
                 cart.append(store[asker]["name"])
                 print(cart)
-                print(Coins)
+                print(self.coins)
             else:
                 print("You're Too Poor")
 
@@ -134,10 +134,10 @@ class Deserted(Starter):
 
     
     def days(self):
-        self.energy -= 10
-        self.thrist -=10
-        self.hunger -= 10
-        self.happy -= 10
+        self.__energy -= 10
+        self.__thrist -=10
+        self.__hunger -= 10
+        self.__happy -= 10
         if self.health <= 0:
             self.health -= 20
             print(f"{self.name} is near death. -20 health" )
