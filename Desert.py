@@ -23,11 +23,10 @@ class NPC(Starter):
 
 
 class Deserted(Starter):
-    def __init__(self, name, happy, hunger, inventory, thrist, energy, mood, health, coins):
+    def __init__(self, name, happy, hunger,  thrist, energy, mood, health, coins):
         super().__init__(name, health, coins)
         self.__happy = happy
         self.__hunger = hunger
-        self.__inventory = []
         self.__thrist = thrist
         self.__energy = energy
         self.__mood = mood
