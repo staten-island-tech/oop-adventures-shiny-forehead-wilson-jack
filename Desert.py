@@ -23,14 +23,13 @@ class NPC(Starter):
 
 
 class Deserted(Starter):
-    def __init__(self, name, happy, hunger,  thrist, energy, mood, health, coins):
-        super().__init__(name, health, coins)
+    def __init__(self, name, happy, hunger,  thrist, energy, mood):
+        super().__init__(name, health = 100, coins = 0)
         self.__happy = happy
         self.__hunger = hunger
         self.__thrist = thrist
         self.__energy = energy
         self.__mood = mood
-        self.__coins = coins
     
     def rich(self):
         richer = input("Do You Want To Shovel For Coins?").lower()
@@ -64,18 +63,18 @@ class Deserted(Starter):
             self.__hunger += self.newnumber()
     def storm(self):
         self.__energy -= 10
-        self.__health -= 5
+        self.health -= 5
         print("A storm hits!")
     def heavy_storm(self):
         self.__energy -= 20
-        self.__health -= 10
+        self.health -= 10
         print("A heavy storm hits!")
     def find_food(self):
         self.__hunger -= 10
         self.__happy += 5
         print("You found some food! It's not much, but, you're content with it.")
     def get_sick(self):
-        self.__health -= 15
+        self.health -= 15
         self.__mood -= 15
         print("Your immune system was compromised. Yes, you got sick...")
     def perfect_weather(self):
@@ -99,7 +98,7 @@ class Deserted(Starter):
             if random.choice([True, False]): self.__happy += 20
             print("You scared it off! Your Ego Is Massive NOW")
         else:
-            self.__health -= 20
+            self.health -= 20
             self.__happy -= 10
             print("The boar tackled you! Ouch...")
     def market(self):
@@ -143,17 +142,17 @@ class Deserted(Starter):
         if self.__hunger <=40:
             self.health -= 5
             print(f"{self.name} is so hungry. -5 health")
-        if self.thrist <=40:
+        if self.__thrist <=40:
             self.health -= 10
             print(f"{self.name} is so thristy. -10 health")
 
     def checker(self):
-        return self.__health, self.__energy
+        return self.health, self.__energy
     
 
 
     def alive(self):
-        if self.__health and self.__energy and self.__thrist > 0:
+        if self.health and self.__energy and self.__thrist > 0:
             return True
         else:
             return False
@@ -166,9 +165,6 @@ class Deserted(Starter):
 name = input("Character Name: ")
 
 
-player = Deserted(name, happy = random.randint(50,100), hunger = random.randint(30,100), thrist= random.randint(60,100), energy = random.randint(50,100))
+player = Deserted(name, happy = random.randint(50,100), hunger = random.randint(30,100), thrist= random.randint(60,100), energy = random.randint(50,100), mood = random.randint(40,100))
 
-if player.checker() < 50:
-    print("You started as frail. Good Luck")
-else:
-    print("You started off as a strong person!!!!!!!!!!!!!!!!!!!!!!z121!!!!!!1")
+
