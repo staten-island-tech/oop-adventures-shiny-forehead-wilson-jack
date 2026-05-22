@@ -35,7 +35,10 @@ class Deserted(Starter):
     def rich(self):
         richer = input("Do You Want To Shovel For Coins?").lower()
         if richer == "yes":
-            self.coins += random.randint(1,20)
+            if self.__energy > 45:
+                self.coins += random.randint(1,20)
+            else:
+                print("Too Weak")
 
 
     
@@ -146,6 +149,12 @@ class Deserted(Starter):
         if self.__thrist <=40:
             self.health -= 10
             print(f"{self.name} is so thristy. -10 health")
+
+        self.__happy = max(0, min(100, self.__happy))
+        self.__energy = max(0, min(100, self.__energy))
+        self.health = max(0, min(100, self.health))
+        self.__hunger = max(0, min(100, self.__hunger))
+        self.__mood = max(0, min(100, self.__mood))
 
     def checker(self):
         return self.health, self.__energy
