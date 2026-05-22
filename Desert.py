@@ -159,7 +159,9 @@ class Deserted(Starter):
     def checker(self):
         return self.health, self.__energy
     
-
+    def sleep(self):
+        self.__energy += 40
+        self.__mood = random.randint(10,30)
 
     def alive(self):
         if self.health and self.__energy and self.__thrist > 0:
@@ -167,8 +169,15 @@ class Deserted(Starter):
         else:
             return False
 
+    def show_stat(self):
+        print(f"---{self.name}'s stats:---")
+        print(f"Happy: {self.__happy}")
+        print(f"Energy: {self.__energy}")
+        print(f"Hunger: {self.__hunger}")
+        print(f"Health: {self.health}")
+        print(f"Mood: {self.__mood}")
     
-        
+         
 
 
 
@@ -177,3 +186,6 @@ name = input("Character Name: ")
 
 player = Deserted(name, happy = random.randint(50,100), hunger = random.randint(30,100), thrist= random.randint(60,100), energy = random.randint(50,100), mood = random.randint(40,100))
 
+
+print("Welcome", name, "your job is to survive this deserted island and escape using the Life Raft")
+player.show_stat()
