@@ -30,6 +30,7 @@ class Deserted(Starter):
         self.__thrist = thrist
         self.__energy = energy
         self.__mood = mood
+
     
     def rich(self):
         richer = input("Do You Want To Shovel For Coins?").lower()
@@ -165,6 +166,5 @@ class Deserted(Starter):
 name = input("Character Name: ")
 
 
-player = Deserted(name, happy = random.randint(50,100), hunger = random.randint(30,100), thrist= random.randint(60,100), energy = random.randint(50,100), mood = random.randint(40,100))
-
+player = Deserted(name, happy = random.randint(50,100), hunger = random.randint(30,100), thrist= random.randint(60,100), energy = random.randint(50,100), mood = random.randint(40,100)
 
