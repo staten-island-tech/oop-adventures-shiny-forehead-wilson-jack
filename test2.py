@@ -59,15 +59,15 @@ def random_event(self):
     roll = random.randint(1,100)
     if roll <= 10:
          self.storm()
-    elif roll <= 25:
+    elif roll <= 30:
          self.find_food()
     elif roll <= 40:
          self.get_sick()
     elif roll <= 65:
          self.perfect_weather()
-    elif roll <= 80:
+    elif roll <= 75:
          self.message_in_a_bottle()
-    elif roll <= 95:
+    elif roll <= 90:
          self.wild_beast()
     else: 
          self.supply_crate()
