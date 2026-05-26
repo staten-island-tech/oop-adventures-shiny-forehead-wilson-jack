@@ -176,6 +176,7 @@ class Deserted(Starter):
         print(f"Hunger: {self.__hunger}")
         print(f"Health: {self.health}")
         print(f"Mood: {self.__mood}")
+        print(f"Coins: {self.coins}")
     
          
 
@@ -189,3 +190,14 @@ player = Deserted(name, happy = random.randint(50,100), hunger = random.randint(
 
 print("Welcome", name, "your job is to survive this deserted island and escape using the Life Raft")
 player.show_stat()
+print()
+if player.alive() < 50:
+    print("Frail Character!")
+else:
+    print("Excellent Character!")
+
+while True:
+    print("What Would You Like To Do?")
+    print("Fish")
+    print()
+
