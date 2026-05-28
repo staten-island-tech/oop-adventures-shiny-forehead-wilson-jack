@@ -35,8 +35,7 @@ def supply_crate(self):
     print("3. Comedy Book")
     print("4. Spear")
     print("5. Can of Beans")
-    choice = input("Choose a maximum of 2 items.")
-     # WIP
+    choice = input("You can choose a MAXIMUM of 2 items.")
 
      
 
