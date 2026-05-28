@@ -21,6 +21,7 @@ class NPC(Starter):
 class Deserted(Starter):
     def __init__(self, name, happy, hunger,  thrist, energy, mood):
         super().__init__(name, health = 100, coins = 0)
+        self.cart = []
         self.__happy = happy
         self.__hunger = hunger
         self.__thrist = thrist
@@ -53,6 +54,9 @@ class Deserted(Starter):
             print("Alright")
     
     def fishing(self):
+        if "Fishing Rod" not in self.cart:
+            print("Buy a fishing rod.")
+            return
         asker = input("Fish? ").lower()
         if asker == "yes":
             self.__energy += self.newnumber()
@@ -106,9 +110,34 @@ class Deserted(Starter):
             self.health -= 20
             self.__happy -= 10
             print("The boar tackled you! Ouch...")
+
+    def item_use(self):
+        if len(self.cart) == 0:
+            print("Empty Invnetory")
+            return
+        print("Inventory",self.cart)
+        use = input("What do u want to use??").lower()
+        if use not in self.cart:
+            print("Not avaiable")
+        elif use == "water bottle":
+            self.__thrist += 30
+            self.cart.remove(use)
+            print("Thrist has been quenched")
+        elif use == "ww2 rations":
+            self.__hunger += 30
+            self.cart.remove(use)
+            print("Hunger Restored")
+        elif use == "energy drink":
+            self.__energy += 30
+            self.__thrist += 30
+            self.cart.remove(use)
+            print("Energy and thrist fixed")
+        else:
+            print("Cant use")
+
     
     def market(self):
-        cart = []
+
         store = [
          {"name": "Sword", "description": "Heavy and deals damage", "Coins": int(10)},
          {"name": "Water Bottle", "description": "Refreshing", "Coins": 5}, 
@@ -126,8 +155,8 @@ class Deserted(Starter):
             asker = int(input("Buy What?? ")) 
             if self.coins >= store[asker]["Coins"]:
                 self.coins -= store[asker]["Coins"]
-                cart.append(store[asker]["name"])
-                print(cart)
+                self.cart.append(store[asker]["name"])
+                print(self.cart)
                 print(self.coins)
             else:
                 print("You're Too Poor")
@@ -165,7 +194,7 @@ class Deserted(Starter):
         self.__mood = random.randint(10,30)
 
     def alive(self):
-        if self.health < 0 and self.__energy < 0 and self.__thrist > 0:
+        if self.health > 0 and self.__energy > 0 and self.__thrist > 0:
             return True
         else:
             return False
@@ -188,13 +217,13 @@ player = Deserted(name, happy = random.randint(50,100), hunger = random.randint(
 
 print("Welcome", name, "your job is to survive this deserted island and escape using the Life Raft")
 player.show_stat()
-
+day = 0
 if not player.alive():
     print("Frail Character!")
 else:
     print("Excellent Character!")
 
-while True:
+while player.alive():
     print()
     print("-What Would You Like To Do?-")
     print("1 -Fish")
@@ -203,8 +232,14 @@ while True:
     print("4 -Sleep")
     print("5 -Store")
     print("6 -Stats")
+    print("7 - Inventory")
+    print("8 - Use item")
     
-    option = input("What to do? ")
+    while True:
+        option = input("What to do? ")
+        if option in ["1","2","3","4","5","6","7","8"]:
+            break
+        print("Not a choice")
 
     if option == "1":
         player.fishing()
@@ -222,7 +257,12 @@ while True:
         player.market()
     elif option == "6":
         player.show_stat()
+    elif option == "7":
+        print("Inventory", player.cart)
+    elif option == "8":
+        player.item_use()
         player.show_stat()
+
     else:
         print("Not a chouce")
 
@@ -232,5 +272,8 @@ while True:
         player.wild_beast()
 
     player.days()
+    day += 1
+    print("You have survived", day)
+    input("Press enter to continue")
     
-
+print(f" {player.name} died... You failed!")
