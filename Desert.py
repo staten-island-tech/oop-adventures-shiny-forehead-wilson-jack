@@ -122,7 +122,7 @@ class Deserted(Starter):
                 print(index, ":", items["name"],"-", "Description:", items["description"], "-", "Cost:", items["Coins"])
 
             asker = int(input("Buy What?? ")) 
-            if self.coins > store[asker]["Coins"]:
+            if self.coins >= store[asker]["Coins"]:
                 self.coins -= store[asker]["Coins"]
                 cart.append(store[asker]["name"])
                 print(cart)
@@ -164,7 +164,7 @@ class Deserted(Starter):
         self.__mood = random.randint(10,30)
 
     def alive(self):
-        if self.health and self.__energy and self.__thrist > 0:
+        if self.health < 0 and self.__energy < 0 and self.__thrist > 0:
             return True
         else:
             return False
@@ -191,13 +191,42 @@ player = Deserted(name, happy = random.randint(50,100), hunger = random.randint(
 print("Welcome", name, "your job is to survive this deserted island and escape using the Life Raft")
 player.show_stat()
 print()
-if player.alive() < 50:
+if not player.alive():
     print("Frail Character!")
 else:
     print("Excellent Character!")
 
 while True:
-    print("What Would You Like To Do?")
-    print("Fish")
-    print()
+    print("1 -What Would You Like To Do?")
+    print("2 -Fish")
+    print("3 -Drink water")
+    print("4 -Shovel for coins")
+    print("5 -Sleep")
+    print("6 -Store")
+    print("7 -Stats")
+    
+    option = input("What to do?")
+
+    if option == "1":
+        player.fishing()
+    elif option == "2":
+        player.water() 
+    elif option == "3":
+        player.rich()
+    elif option == "4":
+        player.market
+    elif option == "5":
+        player.sleep()
+    elif option == "6":
+        player.show_stat()
+    else:
+        print("Not a chouce")
+
+    if random.randint(1,4) == 4:
+        player.random_event()
+    if random.randint(1,8) == 6:
+        player.wild_beast()
+
+    player.days()
+    
 
