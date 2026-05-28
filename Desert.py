@@ -1,4 +1,5 @@
 import random
+
 class Starter:
     def __init__(self, name, health, coins):
         self.name = name
@@ -6,7 +7,7 @@ class Starter:
         self.coins = coins
 
 class NPC(Starter):
-    def __init__(self,name,health, coins):
+    def __init__(self,name,health, coins): #Find way to make this useful ig
         super().__init__(name, health, coins)
     
     def attacked(self):
