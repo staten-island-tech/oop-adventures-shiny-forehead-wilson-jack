@@ -229,6 +229,11 @@ print()
 input("Press enter to continue")
 
 while player.alive():
+    if day == 1:
+        print("You have survived", day, "day")
+    else:
+        print("You have survived", day, "days")
+
     print()
     print("-What Would You Like To Do?-")
     print("1 -Fish")
@@ -278,9 +283,11 @@ while player.alive():
     if random.randint(1,8) == 6:
         player.wild_beast()
 
-    player.days()
     day += 1
-    print("You have survived", day, "day")
     input("Press enter to continue")
     
 print(f" {player.name} died... You failed!")
+if day == 1:
+    print("You have survived", day, "day")
+else:
+    print("You have survived", day, "days")
