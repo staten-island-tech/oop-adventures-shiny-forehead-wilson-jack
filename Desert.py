@@ -229,10 +229,12 @@ print()
 input("Press enter to continue")
 
 while player.alive():
+    print()
     if day == 1:
         print("You have survived", day, "day")
     else:
         print("You have survived", day, "days")
+    input("Press enter to continue")
 
     print()
     print("-What Would You Like To Do?-")
