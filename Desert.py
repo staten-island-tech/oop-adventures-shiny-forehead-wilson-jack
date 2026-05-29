@@ -206,6 +206,7 @@ class Deserted(Starter):
         print(f"Hunger: {self.__hunger}")
         print(f"Health: {self.health}")
         print(f"Mood: {self.__mood}")
+        print(f"Thrist: {self.__thrist}")
         print(f"Coins: {self.coins}")
 
     
@@ -215,13 +216,17 @@ name = input("Character Name: ")
 player = Deserted(name, happy = random.randint(50,100), hunger = random.randint(30,100), thrist= random.randint(60,100), energy = random.randint(50,100), mood = random.randint(40,100))
 
 
-print("Welcome", name, "your job is to survive this deserted island and escape using the Life Raft")
+print("Welcome", name,"your job is to survive this deserted island and escape using the Life Raft")
 player.show_stat()
 day = 0
 if not player.alive():
     print("Frail Character!")
 else:
     print("Excellent Character!")
+
+print()
+
+input("Press enter to continue")
 
 while player.alive():
     print()
@@ -234,6 +239,8 @@ while player.alive():
     print("6 -Stats")
     print("7 - Inventory")
     print("8 - Use item")
+
+
     
     while True:
         option = input("What to do? ")
@@ -273,7 +280,7 @@ while player.alive():
 
     player.days()
     day += 1
-    print("You have survived", day)
+    print("You have survived", day, "day")
     input("Press enter to continue")
     
 print(f" {player.name} died... You failed!")
