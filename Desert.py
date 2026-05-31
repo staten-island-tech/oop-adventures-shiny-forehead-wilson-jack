@@ -26,7 +26,7 @@ class NPC(Starter):
         accept = input("Deal? Yes/No").lower()
         if accept == "yes":
             player.coins += self.coins
-            player.__hunger -= 25
+            player.scammed(25)
             print("Get Scammed")    
 
     def loot(self):
@@ -34,6 +34,8 @@ class NPC(Starter):
         coins = random.randint(0, self.coins)
         return loot, coins
 class Deserted(Starter):
+
+
     def __init__(self, name, happy, hunger,  thrist, energy, mood):
         super().__init__(name, health = 100, coins = 0)
         self.cart = []
@@ -42,6 +44,9 @@ class Deserted(Starter):
         self.__thrist = thrist
         self.__energy = energy
         self.__mood = mood
+
+    def scammed(self, amount):
+        self.__hunger -= amount
     
     def rich(self):
         richer = input("Do You Want To Shovel For Coins?").lower()
@@ -308,7 +313,27 @@ while player.alive():
         if person.hostile:
             print("Wow Big Buff Man")
             print("1. Fight 2. RUN")
-            choiec
+            choice = input("What Do You Want To Do?? 1/2")
+            if choice == "1":
+                if "Sword" in player.cart:
+                    print("You dealt heavy damage to the strange person but got hit with damage")
+                    person.health = 0
+                else:
+                    person.attacked()
+                if person.living() <=0 :
+                    loot,coins = person.loot()
+                    if loot:
+                        player.cart.append(loot)
+                        print(f"Strange person dropped {loot}")
+                    if coins > 0:
+                        player.coins += coins
+                        print(f"The Strange person dropped {coins}")
+            else:
+                print("You ran")
+        else:
+            person.trade(player)
+            
+
 
     day += 1
     input("Press enter to continue")
