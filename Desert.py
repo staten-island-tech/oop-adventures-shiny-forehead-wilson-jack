@@ -58,6 +58,14 @@ class Deserted(Starter):
     
     def newnumber(self):
         return random.randint(20,50)
+    
+    def limit(self):
+        self.__happy  = max(0, min(100, self.__happy))
+        self.__energy = max(0, min(100, self.__energy))
+        self.__hunger = max(0, min(100, self.__hunger))
+        self.__thrist = max(0, min(100, self.__thrist))
+        self.__mood   = max(0, min(100, self.__mood))
+        self.health   = max(0, min(100, self.health))
 
     def water(self):
         self.__thrist += self.newnumber()
@@ -76,7 +84,7 @@ class Deserted(Starter):
     def fishing(self):
         if "Fishing Rod" not in self.cart:
             print("Buy a fishing rod.")
-            return
+            return "nothing"
         asker = input("Fish? ").lower()
         if asker == "yes":
             self.__energy += self.newnumber()
@@ -276,8 +284,10 @@ while player.alive():
         print("Not a choice")
 
     if option == "1":
-        player.fishing()
-        player.show_stat()
+        result = player.fishing()
+        if result != "nothing":
+            player.show_stat()
+        print()
     elif option == "2":
         player.water()
         player.show_stat()
@@ -307,7 +317,7 @@ while player.alive():
         player.random_event()
     if random.randint(1,8) == 6:
         player.wild_beast()
-    if random.randint(1,4) == 4:
+    if random.randint(1,6) == 4:
         person = NPC("Strange Person", health = 100, coins= random.randint(5,30))
         person.hostile = random.choice([True, False]) 
         if person.hostile:
