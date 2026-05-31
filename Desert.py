@@ -285,7 +285,7 @@ while player.alive():
     elif option == "5":
         player.market()
         if "Life Raft" in player.cart:
-            print("You have escaped after", day)
+            print("You have escaped after", day, "days")
             break
     elif option == "6":
         player.show_stat()
@@ -302,6 +302,13 @@ while player.alive():
         player.random_event()
     if random.randint(1,8) == 6:
         player.wild_beast()
+    if random.randint(1,4) == 4:
+        person = NPC("Strange Person", health = 100, coins= random.randint(5,30))
+        person.hostile = random.choice([True, False]) 
+        if person.hostile:
+            print("Wow Big Buff Man")
+            print("1. Fight 2. RUN")
+            choiec
 
     day += 1
     input("Press enter to continue")
@@ -311,3 +318,5 @@ if day == 1:
     print("You have survived", day, "day")
 else:
     print("You have survived", day, "days")
+
+
