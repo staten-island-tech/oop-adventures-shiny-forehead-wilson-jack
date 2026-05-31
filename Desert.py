@@ -17,7 +17,22 @@ class NPC(Starter):
             print("U just got jumped")
         else:
             print("Tiny Damage")
+
+    def living(self):
+        return self.health
     
+    def trade(self, player):
+        print(f"{self.name} wants to trade {self.coins} coins for 25 hunger")
+        accept = input("Deal? Yes/No").lower()
+        if accept == "yes":
+            player.coins += self.coins
+            player.__hunger -= 25
+            print("Get Scammed")    
+
+    def loot(self):
+        loot = random.choice(["Water Bottle", "WW2 Rations", "Energy Drink", None])
+        coins = random.randint(0, self.coins)
+        return loot, coins
 class Deserted(Starter):
     def __init__(self, name, happy, hunger,  thrist, energy, mood):
         super().__init__(name, health = 100, coins = 0)
@@ -76,7 +91,7 @@ class Deserted(Starter):
         print("A heavy storm hits!")
     
     def find_food(self):
-        self.__hunger -= 10
+        self.__hunger += 10
         self.__happy += 5
         print("You found some food! It's not much, but, you're content with it.")
     
@@ -269,6 +284,9 @@ while player.alive():
         player.show_stat()
     elif option == "5":
         player.market()
+        if "Life Raft" in player.cart:
+            print("You have escaped after", day)
+            break
     elif option == "6":
         player.show_stat()
     elif option == "7":
