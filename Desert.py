@@ -210,7 +210,7 @@ class Deserted(Starter):
             else:
                 print("You're Too Poor")
 
-            asker = input('Do You Want To Continue??').upper()
+            asker = input('Do You Want To Continue?? Yes/No').upper()
             if asker == "NO":
                 break
 
