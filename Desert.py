@@ -23,7 +23,7 @@ class NPC(Starter):
     
     def trade(self, player):
         print(f"{self.name} wants to trade {self.coins} coins for 25 hunger")
-        accept = input("Deal? Yes/No").lower()
+        accept = input("Deal? Yes/No ").lower()
         if accept == "yes":
             player.coins += self.coins
             player.scammed(25)
@@ -72,6 +72,7 @@ class Deserted(Starter):
         self.__energy += random.randint(5,15)
         self.__happy += self.newnumber()
         self.health += random.randint(1,10)
+        self.limit()
 
     def feeling(self):
         if self.__thrist < 25 and self.__energy < 25 and self.__happy < 25 and self.health < 25:
@@ -80,6 +81,8 @@ class Deserted(Starter):
             print("Depressed")
         elif self.__thrist > 50 and self.__energy > 50 and self.__happy > 50 and self.health > 50:
             print("Alright")
+        self.limit()
+
     
     def fishing(self):
         if "Fishing Rod" not in self.cart:
@@ -92,35 +95,49 @@ class Deserted(Starter):
             self.health += self.newnumber()
             self.__hunger += self.newnumber()
             print("You have decided to fish")
+        self.limit()
+
     
     def storm(self):
         self.__energy -= 10
         self.health -= 5
         print("A storm hits!")
+        self.limit()
+
     
     def heavy_storm(self):
         self.__energy -= 20
         self.health -= 10
         print("A heavy storm hits!")
+        self.limit()
+
     
     def find_food(self):
         self.__hunger += 10
         self.__happy += 5
         print("You found some food! It's not much, but, you're content with it.")
+        self.limit()
+
     
     def get_sick(self):
         self.health -= 15
         self.__mood -= 15
         print("Your immune system was compromised. Yes, you got sick...")
+        self.limit()
+
     
     def perfect_weather(self):
         self.__happy += 15
         print("Perfect weather today. Somehow, you feel eventful already.")
+        self.limit()
+
 
     def random_event(self):
         events = [self.storm, self.heavy_storm, self.find_food, self.get_sick, self.perfect_weather]
         event = random.choice(events)
         event()
+        self.limit()
+
     
     def wild_beast(self):
         print()
@@ -138,6 +155,8 @@ class Deserted(Starter):
             self.health -= 20
             self.__happy -= 10
             print("The boar tackled you! Ouch...")
+        self.limit()
+
 
     def item_use(self):
         if len(self.cart) == 0:
@@ -162,6 +181,8 @@ class Deserted(Starter):
             print("Energy and thrist fixed")
         else:
             print("Cant use")
+        self.limit()
+
 
     
     def market(self):
@@ -220,6 +241,8 @@ class Deserted(Starter):
     def sleep(self):
         self.__energy += 40
         self.__mood = random.randint(10,30)
+        self.limit()
+
 
     def alive(self):
         if self.health > 0 and self.__energy > 0 and self.__thrist > 0:
@@ -254,7 +277,7 @@ else:
 
 print()
 
-input("Press enter to continue")
+input("Press enter to continue ")
 
 while player.alive():
     print()
@@ -262,7 +285,7 @@ while player.alive():
         print("You have survived", day, "day")
     else:
         print("You have survived", day, "days")
-    input("Press enter to continue")
+    input("Press enter to continue ")
 
     print()
     print("-What Would You Like To Do?-")
