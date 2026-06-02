@@ -356,7 +356,7 @@ while player.alive():
     elif option == "7":
         print("Inventory", player.cart)
     elif option == "8":
-        player.item_use()
+        player.item_use() #DOES NOT WORK
         player.show_stat()
     elif option == "9":
         if "Life Raft" in player.cart:
