@@ -404,7 +404,7 @@ while player.alive():
 
     day += 1
     input("Press enter to continue")
-breaker = True
+breaker = False
 if breaker == False: 
     print(f" {player.name} died... You failed!")
     if day == 1:
