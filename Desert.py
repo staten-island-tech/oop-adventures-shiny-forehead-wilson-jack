@@ -45,6 +45,8 @@ class Deserted(Starter):
         self.__energy = energy
         self.__mood = mood
 
+    
+
     def scammed(self, amount):
         self.__hunger -= amount
     
@@ -133,10 +135,25 @@ class Deserted(Starter):
 
 
     def random_event(self):
-        events = [self.storm, self.heavy_storm, self.find_food, self.get_sick, self.perfect_weather]
-        event = random.choice(events)
-        event()
-        self.limit()
+        roll = random.randint(1,100)
+        if roll <= 10:
+            self.storm()
+        elif roll <= 30:
+            self.find_food()
+        elif roll <= 35:
+            self.get_sick()
+        elif roll <= 40:
+            self.quicksand()
+        elif roll <= 65:
+            self.perfect_weather()
+        elif roll <= 75:
+            self.message_in_a_bottle()
+        elif roll <= 90:
+            self.wild_beast()
+
+    def message_in_a_bottle(self):
+     self.__happy += 10
+     print("You spot a message in a bottle drifting to shore. Hopeful, you retrieved it and uncrumpled the piece of paper. 'I like trains...' While stupid and unhelpful as it is, you couldn't help but giggle.")
 
     
     def wild_beast(self):
@@ -183,7 +200,18 @@ class Deserted(Starter):
             print("Cant use")
         self.limit()
 
-
+    def quicksand(self):
+     print()
+     print("You stepped into quicksand!")
+     print("1. Panic")
+     print("2. Wiggle your feet, distribute your body weight, and slowly get to solid ground")
+     choice = input("what do you do (1/2): ")
+     if choice == "1":
+          self.energy -= 15
+          print("You panicked, and you've exhausted much of your energy escaping the quicksand.")
+     elif choice == "2":
+          if random.choice([True, False]): self.happy += 5
+          print("Phew. You escaped the quicksand safe and sound.")
     
     def market(self):
 
