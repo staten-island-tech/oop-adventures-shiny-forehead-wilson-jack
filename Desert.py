@@ -325,6 +325,7 @@ while player.alive():
     print("6 -Stats")
     print("7 - Inventory")
     print("8 - Use item")
+    print("9 - Escape (Must Have Lift Raft)")
 
 
     
@@ -350,9 +351,6 @@ while player.alive():
         player.show_stat()
     elif option == "5":
         player.market()
-        if "Life Raft" in player.cart:
-            print("You have escaped after", day, "days")
-            break
     elif option == "6":
         player.show_stat()
     elif option == "7":
@@ -360,6 +358,12 @@ while player.alive():
     elif option == "8":
         player.item_use()
         player.show_stat()
+    elif option == "9":
+        if "Life Raft" in player.cart:
+            print("You have escaped after", day, "days")
+            breaker = True
+            break
+
 
     else:
         print("Not a chouce")
@@ -393,16 +397,24 @@ while player.alive():
                 print("You ran")
         else:
             person.trade(player)
-            
+    if "Life Raft" in player.cart:
+            print("You have escaped after", day, "days")
+            break
 
 
     day += 1
     input("Press enter to continue")
-    
-print(f" {player.name} died... You failed!")
-if day == 1:
-    print("You have survived", day, "day")
+if breaker == False: 
+    print(f" {player.name} died... You failed!")
+    if day == 1:
+        print("You have survived", day, "day")
+    else:
+        print("You have survived", day, "days")
 else:
-    print("You have survived", day, "days")
+    print("You have escaped this island. Congrats.!")
+    if day == 1:
+        print("You have survived", day, "day")
+    else:
+        print("You have survived", day, "days")
 
 
