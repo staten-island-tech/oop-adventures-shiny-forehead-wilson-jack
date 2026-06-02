@@ -289,7 +289,7 @@ class Deserted(Starter):
         print(f"Coins: {self.coins}")
 
     def make_false(self):
-        
+
 
     
 name = input("Character Name: ")
@@ -416,6 +416,4 @@ if breaker == False:
         print("You have survived", day, "days")
 else:
     print("You have left this island. Congrats.!")
-
-
 
