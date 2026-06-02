@@ -222,7 +222,7 @@ class Deserted(Starter):
          {"name": "WW2 Rations", "description": "Food for energy", "Coins": 5},
          {"name": "Energy Drink", "description": "Drink for Energy", "Coins": 3},
          {"name": "Fishing Rod", "description": "Fish for Food", "Coins": 6},
-         {"name": "Life Raft", "description": "Escape Boat To FREEDOM", "Coins": 100}
+         {"name": "Life Raft", "description": "Escape Boat To FREEDOM", "Coins": 1}
         ]
 
         while True:
@@ -331,7 +331,7 @@ while player.alive():
     
     while True:
         option = input("What to do? ")
-        if option in ["1","2","3","4","5","6","7","8"]:
+        if option in ["1","2","3","4","5","6","7","8","9"]:
             break
         print("Not a choice")
 
@@ -363,6 +363,8 @@ while player.alive():
             print("You have escaped after", day, "days")
             breaker = True
             break
+        else:
+            print("You don't have life raft")
 
 
     else:
@@ -397,13 +399,11 @@ while player.alive():
                 print("You ran")
         else:
             person.trade(player)
-    if "Life Raft" in player.cart:
-            print("You have escaped after", day, "days")
-            break
 
 
     day += 1
     input("Press enter to continue")
+breaker = True
 if breaker == False: 
     print(f" {player.name} died... You failed!")
     if day == 1:
@@ -411,10 +411,7 @@ if breaker == False:
     else:
         print("You have survived", day, "days")
 else:
-    print("You have escaped this island. Congrats.!")
-    if day == 1:
-        print("You have survived", day, "day")
-    else:
-        print("You have survived", day, "days")
+    print("You have left this island. Congrats.!")
+
 
 
