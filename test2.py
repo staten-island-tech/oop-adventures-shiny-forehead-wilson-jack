@@ -63,8 +63,6 @@ def random_event(self):
          self.message_in_a_bottle()
     elif roll <= 90:
          self.wild_beast()
-    else: 
-         self.supply_crate()
          
     """ events = [self.storm, self.find_food, self.get_sick, self.perfect_weather, self.message_in_a_bottle, self.wild_beast, self.supply_crate]
     event = random.choice(events)
