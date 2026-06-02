@@ -399,6 +399,7 @@ while player.alive():
                 print("You ran")
         else:
             person.trade(player)
+    player.days()
 
 
     day += 1
