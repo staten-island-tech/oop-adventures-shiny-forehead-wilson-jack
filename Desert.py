@@ -416,5 +416,3 @@ else:
         print("You have survived", day, "day")
     else:
         print("You have survived", day, "days")
-
-
