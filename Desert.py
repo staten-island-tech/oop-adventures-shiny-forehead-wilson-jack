@@ -181,9 +181,7 @@ class Deserted(Starter):
             return
         print("Inventory",self.cart)
         use = input("What do u want to use??").lower()
-        if use not in self.cart:
-            print("Not avaiable")
-        elif use == "water bottle":
+        if use == "water bottle":
             self.__thrist += 30
             self.cart.remove(use)
             print("Thrist has been quenched")
