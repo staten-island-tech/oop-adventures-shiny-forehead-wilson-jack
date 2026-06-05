@@ -16,7 +16,7 @@ class NPC(Starter):
         if rando > 25:
             print("U just got jumped")
         else:
-            print("Tiny Damage")
+            print("Tiny Damage Dealt")
 
     def living(self):
         return self.health
@@ -51,7 +51,7 @@ class Deserted(Starter):
         self.__hunger -= amount
     
     def rich(self):
-        richer = input("Do You Want To Shovel For Coins?").lower()
+        richer = input("Do You Want To Shovel For Coins? ").lower()
         if richer == "yes":
             if self.__energy > 45:
                 self.coins += random.randint(1,20)
@@ -161,7 +161,7 @@ class Deserted(Starter):
         print("A wild boar charges out from the forest!")
         print("1. Hide (costs energy, but you're safe)")
         print("2. Confront it (Risks injury, but might gain happiness)")
-        choice = input("What do you do? (1/2):")
+        choice = input("What do you do? (1/2): ")
         if choice == "1":
             self.__energy -= 15
             print("You dove into the thick brush. You're exhausted, but safe.")
@@ -180,7 +180,7 @@ class Deserted(Starter):
             print("Empty Invnetory")
             return
         print("Inventory",self.cart)
-        use = input("What do u want to use??").lower()
+        use = input("What do u want to use??" ).lower()
         if use == "water bottle":
             self.__thrist += 30
             self.cart.remove(use)
@@ -236,7 +236,7 @@ class Deserted(Starter):
             else:
                 print("You're Too Poor")
 
-            asker = input('Do You Want To Continue?? Yes/No').upper()
+            asker = input('Do You Want To Continue?? Yes/No ').upper()
             if asker == "NO":
                 break
 
@@ -383,7 +383,7 @@ while player.alive():
         if person.hostile:
             print("Wow Big Buff Man")
             print("1. Fight 2. RUN")
-            choice = input("What Do You Want To Do?? 1/2")
+            choice = input("What Do You Want To Do?? 1/2 ")
             if choice == "1":
                 if "Sword" in player.cart:
                     print("You dealt heavy damage to the strange person but got hit with damage")
