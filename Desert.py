@@ -381,7 +381,7 @@ while player.alive():
         person = NPC("Strange Person", health = 100, coins= random.randint(5,30))
         person.hostile = random.choice([True, False]) 
         if person.hostile:
-            print("Wow Big Buff Man")
+            print("Wow Big Buff Man Coming Your Way!")
             print("1. Fight 2. RUN")
             choice = input("What Do You Want To Do?? 1/2 ")
             if choice == "1":
