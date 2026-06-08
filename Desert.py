@@ -135,7 +135,7 @@ class Deserted(Starter):
 
 
     def random_event(self):
-        roll = random.randint(1,100)
+        roll = random.randint(1,90)
         if roll <= 10:
             self.storm()
         elif roll <= 30:
@@ -179,9 +179,11 @@ class Deserted(Starter):
         if len(self.cart) == 0:
             print("Empty Invnetory")
             return
-        print("Inventory",self.cart)
-        use = input("What do u want to use??" ).lower()
-        if use == "water bottle":
+        print("Inventory:",self.cart)
+        for index, items in enumerate(self.cart):
+                print(index, ":", items)
+        use = input("What do u want to use??" )
+        if use == 
             self.__thrist += 30
             self.cart.remove(use)
             print("Thrist has been quenched")
