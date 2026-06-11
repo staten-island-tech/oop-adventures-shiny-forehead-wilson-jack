@@ -196,6 +196,7 @@ class Deserted(Starter):
                 self.__energy += self.newnumber
                 self.__happy += self.newnumber
                 self.health += self.newnumber
+                self.__mood += self.newnumber
             else:
                 print("Cant use")
             self.limit()
@@ -292,17 +293,9 @@ class Deserted(Starter):
         print(f"Thrist: {self.__thrist}")
         print(f"Coins: {self.coins}")
 
-    def good(self):
-        return True
-
-
-
-    
 name = input("Character Name: ")
 
-
 player = Deserted(name, happy = random.randint(50,100), hunger = random.randint(30,100), thrist= random.randint(60,100), energy = random.randint(50,100), mood = random.randint(40,100))
-
 
 print("Welcome", name,"your job is to survive this deserted island and escape using the Life Raft")
 player.show_stat()
@@ -335,9 +328,7 @@ while player.alive():
     print("7 - Inventory")
     print("8 - Use item")
     print("9 - Escape (Must Have Lift Raft)")
-
-
-    
+ 
     while True:
         option = input("What to do? ")
         if option in ["1","2","3","4","5","6","7","8","9"]:
@@ -365,7 +356,7 @@ while player.alive():
     elif option == "7":
         print("Inventory", player.cart)
     elif option == "8":
-        player.item_use() #DOES NOT WORK
+        player.item_use() 
         player.show_stat()
     elif option == "9":
         if "Life Raft" in player.cart:
