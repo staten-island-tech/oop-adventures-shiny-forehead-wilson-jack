@@ -1,0 +1,98 @@
+"""     def item_use(self):
+        if len(self.cart) == 0:
+            print("Empty Invnetory")
+            return
+        print("Inventory",self.cart)
+        use = input("What do u want to use??").lower()
+        if use not in self.cart:
+            print("Not avaiable")
+        elif use == "water bottle":
+            self.__thirst += 30
+            self.cart.remove(use)
+            print("Thirst has been quenched")
+        elif use == "ww2 rations":
+            self.__hunger += 30
+            self.cart.remove(use)
+            print("Hunger Restored")
+        elif use == "energy drink":
+            self.__energy += 30
+            self.__thirst += 30
+            self.cart.remove(use)
+            print("Energy and thrist fixed")
+        else:
+            print("Cant use")
+        self.limit()
+ """
+## ^^ This is the original code.
+
+## vv This will be the fixed code
+
+def item_use(self):
+    if len(self.cart) == 0:
+        print("Empty Inventory")
+        return
+
+    print("Inventory", self.cart)
+    use = input("What do u want to use?? ").strip().lower()
+
+    cart_lower = [item.lower() for item in self.cart]
+
+    if use not in cart_lower:
+        print("Not available")
+        return
+
+    index = cart_lower.index(use)
+    item = self.cart[index]
+
+    if item.lower() == "water bottle":
+        self.__thrist += 30
+        self.cart.pop(index)
+        print("Thirst has been quenched")
+    elif item.lower() == "ww2 rations":
+        self.__hunger += 30
+        self.cart.pop(index)
+        print("Hunger Restored")
+    elif item.lower() == "energy drink":
+        self.__energy += 30
+        self.__thrist += 30
+        self.cart.pop(index)
+        print("Energy and thirst fixed")
+    else:
+        print("Can't use")
+
+    self.limit()
+
+def item_use(self):
+    if len(self.cart) == 0:
+        print("Empty Inventory")
+        return
+
+    print("Inventory", self.cart)
+    
+    use = input("What do u want to use?? ").strip().lower() # **supposed** to make it so that lower or upper case the code works, but ig not...
+    cart_lower = [item.lower() for item in self.cart]
+
+    if use not in cart_lower:
+        print("Not available")
+        return
+
+    index = cart_lower.index(use)
+    item = self.cart[index]
+
+    if item.lower() == "water bottle":
+        self.__thirst += 30  # Fixed typo here
+        self.cart.pop(index)
+        print("Thirst has been quenched")
+    elif item.lower() == "ww2 rations":
+        self.__hunger += 30
+        self.cart.pop(index)
+        print("Hunger Restored")
+    elif item.lower() == "energy drink":
+        self.__energy += 30
+        self.__thirst += 30  # Fixed typo here
+        self.cart.pop(index)
+        print("Energy and thirst fixed")
+    else:
+        print("Can t use")
+        
+    self.limit()
