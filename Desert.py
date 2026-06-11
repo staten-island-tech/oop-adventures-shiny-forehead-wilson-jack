@@ -135,7 +135,7 @@ class Deserted(Starter):
 
 
     def random_event(self):
-        roll = random.randint(1,90)
+        roll = random.randint(1,100)
         if roll <= 10:
             self.storm()
         elif roll <= 30:
@@ -176,32 +176,27 @@ class Deserted(Starter):
 
 
     def item_use(self):
-        while True:
-            if len(self.cart) == 0:
-                print("Empty Invnetory")
-                return
-            print("Inventory:",self.cart)
-            use = input("What do u want to use??" ).lower()
-            if use == "water bottle" and "Water Bottle" in self.cart:
-                self.__thrist += 30
-                self.cart.remove("Water Bottle")
-                print("Thrist has been quenched")
-            elif use == "ww2 rations" and "WW2 Rations" in self.cart:
-                self.__hunger += 30
-                self.cart.remove("WW2 Rations")
-                print("Hunger Restored")
-            elif use == "energy drink" and "Energy Drink" in self.cart:
-                self.__energy += 30
-                self.__thrist += 30
-                self.cart.remove("Energy Drink")
-                print("Energy and thrist fixed")
-            else:
-                print("Cant use")
-            self.limit()
-            pass1 = input('Do you want to continue??').lower()
-            if pass1 == "no":
-                break
-    
+        if len(self.cart) == 0:
+            print("Empty Invnetory")
+            return
+        print("Inventory",self.cart)
+        use = input("What do u want to use??" ).lower()
+        if use == "water bottle":
+            self.__thrist += 30
+            self.cart.remove(use)
+            print("Thrist has been quenched")
+        elif use == "ww2 rations":
+            self.__hunger += 30
+            self.cart.remove(use)
+            print("Hunger Restored")
+        elif use == "energy drink":
+            self.__energy += 30
+            self.__thrist += 30
+            self.cart.remove(use)
+            print("Energy and thrist fixed")
+        else:
+            print("Cant use")
+        self.limit()
 
     def quicksand(self):
      print()
@@ -210,10 +205,10 @@ class Deserted(Starter):
      print("2. Wiggle your feet, distribute your body weight, and slowly get to solid ground")
      choice = input("what do you do (1/2): ")
      if choice == "1":
-          self.__energy -= 15
+          self.energy -= 15
           print("You panicked, and you've exhausted much of your energy escaping the quicksand.")
      elif choice == "2":
-          if random.choice([True, False]): self.__happy += 5
+          if random.choice([True, False]): self.happy += 5
           print("Phew. You escaped the quicksand safe and sound.")
     
     def market(self):
@@ -291,7 +286,9 @@ class Deserted(Starter):
         print(f"Thrist: {self.__thrist}")
         print(f"Coins: {self.coins}")
 
-left = False
+    def good(self):
+        return True
+
 
 
     
@@ -367,7 +364,7 @@ while player.alive():
     elif option == "9":
         if "Life Raft" in player.cart:
             print("You have escaped after", day, "days")
-            left = True
+            player.good()
             break
         else:
             print("You don't have life raft")
@@ -411,7 +408,7 @@ while player.alive():
     day += 1
     input("Press enter to continue")
 
-if left == False: 
+if player.good() == False: 
     print(f" {player.name} died... You failed!")
     if day == 1:
         print("You have survived", day, "day")
