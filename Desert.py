@@ -201,7 +201,7 @@ class Deserted(Starter):
             pass1 = input('Do you want to continue??').lower()
             if pass1 == "no":
                 break
-    try
+
 
     def quicksand(self):
      print()
