@@ -92,10 +92,7 @@ class Deserted(Starter):
             return "nothing"
         asker = input("Fish? ").lower()
         if asker == "yes":
-            self.__energy += self.newnumber()
-            self.__happy += self.newnumber()
-            self.health += self.newnumber()
-            self.__hunger += self.newnumber()
+            self.cart.append("Fish")
             print("You have decided to fish")
         self.limit()
 
@@ -195,6 +192,10 @@ class Deserted(Starter):
                 self.__thrist += 30
                 self.cart.remove("Energy Drink")
                 print("Energy and thrist fixed")
+            elif use == "fish" and "Fish" in self.cart:
+                self.__energy += self.newnumber
+                self.__happy += self.newnumber
+                self.health += self.newnumber
             else:
                 print("Cant use")
             self.limit()
