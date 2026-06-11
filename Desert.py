@@ -71,9 +71,9 @@ class Deserted(Starter):
 
     def water(self):
         self.__thrist += self.newnumber()
-        self.__energy += random.randint(5,15)
+        self.__energy += random.randint(1,10)
         self.__happy += self.newnumber()
-        self.health += random.randint(1,10)
+        self.health -= random.randint(1,10)
         self.limit()
 
     def feeling(self):
@@ -326,7 +326,7 @@ while player.alive():
     print()
     print("-What Would You Like To Do?-")
     print("1 -Fish")
-    print("2 -Drink water")
+    print("2 -Drink Dirty Water")
     print("3 -Shovel for coins")
     print("4 -Sleep")
     print("5 -Store")
