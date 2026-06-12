@@ -227,7 +227,7 @@ class Deserted(Starter):
          {"name": "WW2 Rations", "description": "Food for energy", "Coins": 5},
          {"name": "Energy Drink", "description": "Drink for Energy", "Coins": 3},
          {"name": "Fishing Rod", "description": "Fish for Food", "Coins": 6},
-         {"name": "Life Raft", "description": "Escape Boat To FREEDOM", "Coins": 1}
+         {"name": "Life Raft", "description": "Escape Boat To FREEDOM", "Coins": 499}
         ]
 
         while True:
