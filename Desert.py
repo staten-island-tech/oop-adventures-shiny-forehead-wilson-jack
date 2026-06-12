@@ -51,7 +51,7 @@ class Deserted(Starter):
         self.__hunger -= amount
     
     def rich(self):
-        richer = input("Do You Want To Shovel For Coins? ").lower()
+        richer = input("Do You Want To Shovel For Coins? Yes/No ").lower()
         if richer == "yes":
             if self.__energy > 45:
                 self.coins += random.randint(1,20)
@@ -90,7 +90,7 @@ class Deserted(Starter):
         if "Fishing Rod" not in self.cart:
             print("Buy a fishing rod.")
             return "nothing"
-        asker = input("Fish? ").lower()
+        asker = input("Fish? Yes/No ").lower()
         if asker == "yes":
             self.cart.append("Fish")
             print("You have decided to fish")
@@ -178,7 +178,7 @@ class Deserted(Starter):
                 print("Empty Invnetory")
                 return
             print("Inventory:",self.cart)
-            use = input("What do u want to use??" ).lower()
+            use = input("What do u want to use?? Type Name" ).lower()
             if use == "water bottle" and "Water Bottle" in self.cart:
                 self.__thrist += 30
                 self.cart.remove("Water Bottle")
@@ -200,7 +200,7 @@ class Deserted(Starter):
             else:
                 print("Cant use")
             self.limit()
-            pass1 = input('Do you want to continue??').lower()
+            pass1 = input('Do you want to continue?? Yes/No').lower()
             if pass1 == "no":
                 break
 
@@ -234,7 +234,7 @@ class Deserted(Starter):
             for index, items in enumerate(store):
                 print(index, ":", items["name"],"-", "Description:", items["description"], "-", "Cost:", items["Coins"])
 
-            asker = int(input("Buy What?? ")) 
+            asker = int(input("Buy What?? Number ")) 
             if self.coins >= store[asker]["Coins"]:
                 self.coins -= store[asker]["Coins"]
                 self.cart.append(store[asker]["name"])
