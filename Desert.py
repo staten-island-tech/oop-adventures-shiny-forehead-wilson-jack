@@ -361,7 +361,6 @@ while player.alive():
     elif option == "9":
         if "Life Raft" in player.cart:
             print("You have escaped after", day, "days")
-            player.good()
             break
         else:
             print("You don't have life raft")
